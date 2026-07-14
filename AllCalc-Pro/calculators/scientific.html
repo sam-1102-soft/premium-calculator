@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scientific Calculator | AllCalc Pro</title>
+    <meta name="description" content="Perform advanced scientific calculations with buttons and memory-style input." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body data-page="scientific">
+    <div class="toast-container" id="toast-container"></div>
+    <header class="topbar">
+      <a class="brand" href="../index.html"><span class="brand-mark">A</span><span><strong>AllCalc Pro</strong><small>Scientific Calculator</small></span></a>
+      <nav class="top-nav" aria-label="Calculator navigation"><a href="../index.html">Home</a><button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button></nav>
+    </header>
+    <main class="page-shell has-sidebar">
+      <aside class="sidebar"><div class="sidebar-card"><h3>Calculator suite</h3><a class="nav-link" href="basic.html">Basic</a><a class="nav-link" href="scientific.html">Scientific</a><a class="nav-link" href="health.html">Health</a><a class="nav-link" href="emi.html">Finance</a><a class="nav-link" href="cgpa.html">Education</a><a class="nav-link" href="length.html">Converters</a><a class="nav-link" href="age.html">Utility</a></div></aside>
+      <section class="calc-shell">
+        <div class="page-intro"><div><p class="eyebrow">Scientific • 🧮</p><h1>Scientific Calculator</h1><p class="breadcrumbs"><a href="../index.html">Home</a> / Scientific Calculator</p></div></div>
+        <form class="calc-shell" id="scientific-form"><div class="form-grid"><label>Expression <input id="scientific-display" type="text" placeholder="e.g. 2+sin(30)" autocomplete="off" /></label><div class="scientific-grid"><button type="button" data-value="7">7</button><button type="button" data-value="8">8</button><button type="button" data-value="9">9</button><button type="button" data-value="/">/</button><button type="button" data-value="4">4</button><button type="button" data-value="5">5</button><button type="button" data-value="6">6</button><button type="button" data-value="*">*</button><button type="button" data-value="1">1</button><button type="button" data-value="2">2</button><button type="button" data-value="3">3</button><button type="button" data-value="-">-</button><button type="button" data-value="0">0</button><button type="button" data-value=".">.</button><button type="button" data-value="+">+</button><button type="button" data-value="(">(</button><button type="button" data-value=")">)</button><button type="button" data-value="Math.sin(30*Math.PI/180)">sin</button><button type="button" data-value="Math.cos(30*Math.PI/180)">cos</button><button type="button" data-value="Math.tan(30*Math.PI/180)">tan</button><button type="button" data-value="Math.log10(100)">log</button><button type="button" data-value="Math.log(2.718281828)">ln</button><button type="button" data-value="Math.sqrt(16)">√</button><button type="button" data-value="Math.pow(2,3)">x²</button><button type="button" data-value="Math.PI">π</button><button type="button" data-value="Math.E">e</button><button type="button" data-value="Math.pow(2,4)">xʸ</button></div><div class="memory-row"><button class="btn btn-secondary" type="button" id="clear-display">Clear</button><button class="btn btn-secondary" type="button" id="backspace-display">Backspace</button><button class="btn btn-primary" type="submit">Evaluate</button></div></div></form>
+        <div class="result-card"><div class="result-actions"><button class="btn btn-secondary copy-result" type="button">Copy result</button><button class="btn btn-secondary share-result" type="button">Share</button><button class="btn btn-secondary print-result" type="button">Print</button><button class="btn btn-secondary pdf-result" type="button">Save as PDF</button></div><div class="result" id="result-output">Your result will appear here.</div><p>Scientific calculations use JavaScript math expressions.</p></div>
+      </section>
+    </main>
+    <script src="../js/calculators.js"></script>
+    <script src="../script.js"></script>
+  </body>
+</html>

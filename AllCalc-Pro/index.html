@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AllCalc Pro | Premium Calculator Hub</title>
+    <meta name="description" content="AllCalc Pro is a premium calculator portal with science, finance, health, and utility tools." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <button class="back-to-top" aria-label="Back to top">↑</button>
+    <button class="fab" aria-label="Quick actions">⚡</button>
+    <div class="toast-container" id="toast-container"></div>
+    <header class="topbar">
+      <a class="brand" href="#"><span class="brand-mark">A</span><span><strong>AllCalc Pro</strong><small>Premium calculator suite</small></span></a>
+      <nav class="top-nav" aria-label="Primary navigation">
+        <a href="#featured">Featured</a><a href="#categories">Categories</a><a href="#faq">FAQ</a><button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </nav>
+    </header>
+    <main class="page-shell">
+      <section class="hero card">
+        <div>
+          <p class="eyebrow">All-in-one • Smart • Fast</p>
+          <h1>Calculate with clarity, speed, and sophistication.</h1>
+          <p>From scientific math to finance, health, and utility tools, AllCalc Pro delivers a polished experience for daily decisions.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="calculators/basic.html">Start calculating</a><a class="btn btn-secondary" href="#featured">Explore tools</a></div>
+          <div class="hero-tags"><span>Glassmorphism UI</span><span>Dark/Light mode</span><span>Offline ready</span></div>
+        </div>
+        <div class="hero-panel"><div class="metric-card"><strong class="counter" data-target="38">0</strong><span>Powerful tools</span></div><div class="metric-card"><strong class="counter" data-target="99">0</strong><span>Accuracy score</span></div><div class="metric-card"><strong class="counter" data-target="24">0</strong><span>On-demand calculators</span></div></div>
+      </section>
+      <section class="search-panel card">
+        <label class="search-box" for="search"><span>🔍</span><input id="search" type="search" placeholder="Search calculators by name or category" /></label>
+        <div class="chip-row"><button class="chip is-active" data-filter="all">All</button><button class="chip" data-filter="Basic">Basic</button><button class="chip" data-filter="Scientific">Scientific</button><button class="chip" data-filter="Finance">Finance</button><button class="chip" data-filter="Health">Health</button><button class="chip" data-filter="Utility">Utility</button></div>
+      </section>
+      <section id="categories" class="section"><div class="section-heading"><h2>Calculator categories</h2><p>Choose the right tool for your next calculation.</p></div><div class="grid categories-grid"><a class="category-card" href="calculators/basic.html"><h3>Basic</h3><p>Arithmetic with speed and clarity</p></a><a class="category-card" href="calculators/scientific.html"><h3>Scientific</h3><p>Trig, logs, factorials, memory</p></a><a class="category-card" href="calculators/health.html"><h3>Health</h3><p>BMI, BMR, calorie and water insights</p></a><a class="category-card" href="calculators/emi.html"><h3>Finance</h3><p>EMI, GST, SIP, FD, and more</p></a><a class="category-card" href="calculators/cgpa.html"><h3>Education</h3><p>CGPA, GPA, attendance, and marks</p></a><a class="category-card" href="calculators/length.html"><h3>Converters</h3><p>Length, weight, temperature, area, and volume</p></a><a class="category-card" href="calculators/age.html"><h3>Utility</h3><p>Age, password, fuel, electricity, tip</p></a><a class="category-card" href="calculators/date.html"><h3>Date</h3><p>Difference, countdown, and time tools</p></a></div></section>
+      <section id="featured" class="section"><div class="section-heading"><h2>Featured calculators</h2><p>Popular tools tuned for real-world use.</p></div><div class="grid calculator-grid" id="calculator-grid"><article class="calculator-card" data-name="Basic Calculator" data-category="Basic" data-url="calculators/basic.html"><div class="card-head"><span>➕</span><button class="favorite-btn" data-fav="basic">☆</button></div><h3>Basic calculator</h3><p>Quick arithmetic for everyday tasks.</p><a href="calculators/basic.html" class="btn btn-mini">Open</a></article><article class="calculator-card" data-name="Scientific Calculator" data-category="Scientific" data-url="calculators/scientific.html"><div class="card-head"><span>🧮</span><button class="favorite-btn" data-fav="scientific">☆</button></div><h3>Scientific calculator</h3><p>Advanced operations, logs, functions, and constants.</p><a href="calculators/scientific.html" class="btn btn-mini">Open</a></article><article class="calculator-card" data-name="EMI Calculator" data-category="Finance" data-url="calculators/emi.html"><div class="card-head"><span>🏦</span><button class="favorite-btn" data-fav="emi">☆</button></div><h3>EMI calculator</h3><p>Estimate your monthly installments with confidence.</p><a href="calculators/emi.html" class="btn btn-mini">Open</a></article><article class="calculator-card" data-name="Health calculators" data-category="Health" data-url="calculators/health.html"><div class="card-head"><span>⚕️</span><button class="favorite-btn" data-fav="health">☆</button></div><h3>Health calculators</h3><p>Run BMI, BMR, calorie, and water intake tools.</p><a href="calculators/health.html" class="btn btn-mini">Open</a></article><article class="calculator-card" data-name="Currency Converter" data-category="Utility" data-url="calculators/currency.html"><div class="card-head"><span>💱</span><button class="favorite-btn" data-fav="currency">☆</button></div><h3>Currency converter</h3><p>Convert across currencies in seconds.</p><a href="calculators/currency.html" class="btn btn-mini">Open</a></article><article class="calculator-card" data-name="Password Generator" data-category="Utility" data-url="calculators/password.html"><div class="card-head"><span>🔐</span><button class="favorite-btn" data-fav="password">☆</button></div><h3>Password generator</h3><p>Create strong passwords instantly.</p><a href="calculators/password.html" class="btn btn-mini">Open</a></article></div></section>
+      <section id="stats" class="section stats-grid"><div class="card stat-card"><h3>Recently used</h3><ul id="recent-list"></ul></div><div class="card stat-card"><h3>Favorites</h3><ul id="favorites-list"></ul></div><div class="card stat-card"><h3>Usage snapshot</h3><p>Everything is stored locally so your preferences and history stay ready.</p></div></section>
+      <section class="section"><div class="section-heading"><h2>What users say</h2><p>Trusted by students, pros, and everyday planners.</p></div><div class="grid testimonials-grid"><article class="card quote-card"><p>“The interface feels premium and the calculations are instantly reliable.”</p><strong>— Aisha, student</strong></article><article class="card quote-card"><p>“I use it daily for EMI, GST, and quick conversions.”</p><strong>— Daniel, finance analyst</strong></article><article class="card quote-card"><p>“The dark mode and speed make it my favorite calculator hub.”</p><strong>— Maya, designer</strong></article></div></section>
+      <section id="faq" class="section"><div class="section-heading"><h2>Frequently asked questions</h2></div><div class="faq-list"><details class="card faq-item" open><summary>Is AllCalc Pro fully responsive?</summary><p>Yes, the app adapts beautifully for phones, tablets, and desktops.</p></details><details class="card faq-item"><summary>Does it save my history?</summary><p>Yes, your calculations and favorites are preserved locally in your browser.</p></details><details class="card faq-item"><summary>Can I share results?</summary><p>Yes, you can copy, share, print, and export your history for easy use.</p></details></div></section>
+    </main>
+    <footer class="footer"><p>© 2026 AllCalc Pro. Built with HTML, CSS, and Vanilla JavaScript.</p></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
