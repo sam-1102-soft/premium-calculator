@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date Tools | AllCalc Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body data-page="date">
+    <div class="toast-container" id="toast-container"></div>
+    <header class="topbar">
+      <a class="brand" href="../index.html"><span class="brand-mark">A</span><span><strong>AllCalc Pro</strong><small>Date tools</small></span></a>
+      <nav class="top-nav" aria-label="Calculator navigation"><a href="../index.html">Home</a><button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button></nav>
+    </header>
+    <main class="page-shell has-sidebar">
+      <aside class="sidebar"><div class="sidebar-card"><h3>Calculator suite</h3><a class="nav-link" href="basic.html">Basic</a><a class="nav-link" href="scientific.html">Scientific</a><a class="nav-link" href="health.html">Health</a><a class="nav-link" href="emi.html">Finance</a><a class="nav-link" href="cgpa.html">Education</a><a class="nav-link" href="length.html">Converters</a><a class="nav-link" href="age.html">Utility</a></div></aside>
+      <section class="calc-shell">
+        <div class="page-intro"><div><p class="eyebrow">Date • 📅</p><h1>Date Tools</h1><p class="breadcrumbs"><a href="../index.html">Home</a> / Date tools</p></div></div>
+        <form class="calc-shell">
+          <div class="form-grid">
+            <label>Choose a tool
+              <select id="date-tool">
+                <option value="difference">Date difference</option>
+                <option value="countdown">Countdown</option>
+                <option value="time">Time converter</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="date-tool-section" data-tool="difference">
+            <div class="form-grid">
+              <label>Start date <input id="start-date" type="date" required /></label>
+              <label>End date <input id="end-date" type="date" required /></label>
+            </div>
+            <div class="form-grid"><button class="btn btn-primary" type="submit">Calculate difference</button></div>
+          </div>
+
+          <div class="date-tool-section" data-tool="countdown" hidden>
+            <div class="form-grid">
+              <label>Target date & time <input id="countdown-target" type="datetime-local" required /></label>
+            </div>
+            <div class="form-grid"><button class="btn btn-primary" type="submit">Start countdown</button></div>
+          </div>
+
+          <div class="date-tool-section" data-tool="time" hidden>
+            <div class="form-grid">
+              <label>Value <input id="time-value" type="number" step="any" required /></label>
+              <label>Unit <select id="time-unit"><option value="seconds">Seconds</option><option value="minutes">Minutes</option><option value="hours">Hours</option><option value="days">Days</option></select></label>
+            </div>
+            <div class="form-grid"><button class="btn btn-primary" type="submit">Convert to seconds</button></div>
+          </div>
+        </form>
+
+        <div class="result-card"><div class="result-actions"><button class="btn btn-secondary copy-result" type="button">Copy result</button><button class="btn btn-secondary share-result" type="button">Share</button><button class="btn btn-secondary print-result" type="button">Print</button><button class="btn btn-secondary pdf-result" type="button">Save as PDF</button></div><div class="result" id="result-output">Use the form above to calculate.</div><p>Date difference, countdown, and time conversion tools.</p></div>
+      </section>
+    </main>
+    <script src="../js/calculators.js"></script>
+    <script src="../script.js"></script>
+  </body>
+</html>

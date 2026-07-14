@@ -54,3 +54,53 @@ const startCountdown = (event) => { event.preventDefault(); const target = new D
 const attachScientificButtons = () => { document.querySelectorAll('.scientific-grid button').forEach((button) => { button.addEventListener('click', () => { const display = document.getElementById('scientific-display'); const value = button.dataset.value || button.textContent; display.value += value; display.focus(); }); }); document.getElementById('clear-display')?.addEventListener('click', () => { document.getElementById('scientific-display').value = ''; }); document.getElementById('backspace-display')?.addEventListener('click', () => { const display = document.getElementById('scientific-display'); display.value = display.value.slice(0, -1); }); };
 window.initCalculatorPage = () => { initSharedFeatures(); const page = document.body.dataset.page; const forms = { basic: (event) => calculateBasic(event), scientific: (event) => calculateScientific(event), age: (event) => calculateAge(event), bmi: (event) => calculateBMI(event), bmr: (event) => calculateBMR(event), health: (event) => handleHealthForm(event), percentage: (event) => calculatePercentage(event), discount: (event) => calculateDiscount(event), emi: (event) => calculateEMI(event), gst: (event) => calculateGST(event), sip: (event) => calculateSIP(event), fd: (event) => calculateFD(event), 'simple-interest': (event) => calculateSimpleInterest(event), 'compound-interest': (event) => calculateCompoundInterest(event), loan: (event) => calculateLoan(event), currency: (event) => calculateCurrency(event), length: (event) => calculateLength(event), weight: (event) => calculateWeight(event), temperature: (event) => calculateTemperature(event), area: (event) => calculateArea(event), volume: (event) => calculateVolume(event), fuel: (event) => calculateFuel(event), electricity: (event) => calculateElectricity(event), password: (event) => generatePassword(event), cgpa: (event) => calculateCGPA(event), attendance: (event) => calculateAttendance(event), date: (event) => calculateDateDifference(event), time: (event) => calculateTime(event), tax: (event) => calculateTax(event), speed: (event) => calculateSpeed(event), pressure: (event) => calculatePressure(event), tip: (event) => calculateTip(event), countdown: (event) => startCountdown(event) }; const form = document.querySelector('form'); if (form) { form.addEventListener('submit', forms[page] || ((event) => event.preventDefault())); } attachScientificButtons(); if (page === 'scientific') document.getElementById('scientific-form')?.addEventListener('submit', calculateScientific); if (page === 'health') { const tool = document.getElementById('health-tool'); const showHealthTool = (value) => { document.querySelectorAll('.health-tool-section').forEach((section) => { section.hidden = section.dataset.tool !== value; }); const titleMap = { bmi: 'BMI', bmr: 'BMR', calories: 'Calorie insights', water: 'Water intake' }; const pageTitle = document.querySelector('.page-intro h1'); if (pageTitle) pageTitle.textContent = `${titleMap[value] || 'Health'} calculator`; }; if (tool) { tool.addEventListener('change', () => showHealthTool(tool.value)); showHealthTool(tool.value); } } };
 const handleHealthForm = (event) => { const tool = document.getElementById('health-tool')?.value || 'bmi'; if (tool === 'bmi') return calculateBMI(event); if (tool === 'bmr') return calculateBMR(event); if (tool === 'calories') return calculateCalories(event); if (tool === 'water') return calculateWater(event); return event.preventDefault(); };
+
+// Ensure hidden health sections have their inputs disabled so HTML5 validation
+// does not block submitting the visible tool's form fields.
+document.addEventListener('DOMContentLoaded', () => {
+	if (document.body.dataset.page !== 'health') return;
+	const toolSelect = document.getElementById('health-tool');
+	const applyVisibility = (value) => {
+		document.querySelectorAll('.health-tool-section').forEach((section) => {
+			const isVisible = section.dataset.tool === value;
+			section.hidden = !isVisible;
+			section.querySelectorAll('input, select, textarea').forEach((el) => { el.disabled = !isVisible; });
+		});
+	};
+	if (toolSelect) {
+		toolSelect.addEventListener('change', () => applyVisibility(toolSelect.value));
+		applyVisibility(toolSelect.value);
+	} else {
+		applyVisibility('bmi');
+	}
+});
+
+// Date page: support multiple date tools (difference, countdown, time) and
+// disable inputs in hidden sections to avoid validation blocking.
+document.addEventListener('DOMContentLoaded', () => {
+	if (document.body.dataset.page !== 'date') return;
+	const toolSelect = document.getElementById('date-tool');
+	const applyVisibility = (value) => {
+		document.querySelectorAll('.date-tool-section').forEach((section) => {
+			const isVisible = section.dataset.tool === value;
+			section.hidden = !isVisible;
+			section.querySelectorAll('input, select, textarea').forEach((el) => { el.disabled = !isVisible; });
+		});
+	};
+	const form = document.querySelector('form');
+	if (toolSelect) {
+		toolSelect.addEventListener('change', () => applyVisibility(toolSelect.value));
+		applyVisibility(toolSelect.value);
+	} else {
+		applyVisibility('difference');
+	}
+	if (form) {
+		form.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const tool = document.getElementById('date-tool')?.value || 'difference';
+			if (tool === 'difference') return calculateDateDifference(e);
+			if (tool === 'countdown') return startCountdown(e);
+			if (tool === 'time') return calculateTime(e);
+		});
+	}
+});
